@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 import joblib
 import os
 
@@ -15,9 +17,15 @@ data = pd.DataFrame({
 features = data[['Feature1', 'Feature2', 'Feature3']]
 labels = data['Biocompatible']
 
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+
 # Create and train a random forest classifier (replace this with your own dataset)
 model = RandomForestClassifier()
 model.fit(features, labels)
+
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy*100}%")
 
 model_path = os.path.abspath('C:\\Users\\Rahul Patnaik\\Desktop\\biocompatibility\\biocompatibility_model.pkl')
 

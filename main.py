@@ -64,28 +64,35 @@ def handle_prediction():
 app = tk.Tk()
 app.title("Biocompatibility Checker")
 
+# Get the screen width and height
+screen_width = app.winfo_screenwidth()
+screen_height = app.winfo_screenheight()
+
+# Set the window size to the screen size
+app.geometry(f"{screen_width}x{screen_height}")
+
 # Add input fields for user to enter features
-feature1_label = tk.Label(app, text="Feature 1:")
-feature1_label.pack()
-feature1_entry = tk.Entry(app)
-feature1_entry.pack()
+feature1_label = tk.Label(app, text="Feature 1:", font=("Helvetica", 20))
+feature1_label.place(x=20,y=10)
+feature1_entry = tk.Entry(app, width= 30, font=("Helvetica", 20))
+feature1_entry.place(x=20,y=50)
 
-feature2_label = tk.Label(app, text="Feature 2:")
-feature2_label.pack()
-feature2_entry = tk.Entry(app)
-feature2_entry.pack()
+feature2_label = tk.Label(app, text="Feature 2:", font=("Helvetica", 20))
+feature2_label.place(x=20, y=90)
+feature2_entry = tk.Entry(app, width= 30, font=("Helvetica", 20))
+feature2_entry.place(x=20, y=130)
 
-feature3_label = tk.Label(app, text="Feature 3:")
-feature3_label.pack()
-feature3_entry = tk.Entry(app)
-feature3_entry.pack()
+feature3_label = tk.Label(app, text="Feature 3:", font=("Helvetica", 20))
+feature3_label.place(x=20, y=170)
+feature3_entry = tk.Entry(app, width= 30, font=("Helvetica", 20))
+feature3_entry.place(x=20, y=210)
 
 # Button to trigger prediction
-predict_button = tk.Button(app, text="Predict Biocompatibility", command=handle_prediction)
-predict_button.pack()
+predict_button = tk.Button(app, text="Predict Biocompatibility", height=5, width= 50, command=handle_prediction)
+predict_button.place(x=20, y=300)
 
 # Label to display the prediction result
-result_label = tk.Label(app, text="", font=("Helvetica", 16))
+result_label = tk.Label(app, text="", font=("Helvetica", 30))
 result_label.pack()
 
 # Start the Tkinter main loop
