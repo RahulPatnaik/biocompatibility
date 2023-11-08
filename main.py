@@ -7,7 +7,7 @@ import os
 
 print(os.getcwd())
 
-# Determine the full path to the directory containing main.py
+# Determine the full path to the directory 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Load the trained machine learning model
@@ -15,22 +15,22 @@ model_path = os.path.join(current_directory, 'biocompatibility_model.pkl')
 model = joblib.load(model_path)
 
 
-# Function to load and preprocess the data
+# load and preprocess the data
 def load_data(file_path):
     try:
         # Load the Excel file using openpyxl
         excel_data = openpyxl.load_workbook(file_path)
-        # Specify the sheet name (e.g., 'Sheet1')
+        # Specify the sheet
         sheet = excel_data['Sheet1']
 
         # Convert the sheet data to a DataFrame
         data = pd.DataFrame(sheet.values)
 
-        # Assign column names based on the first row (assuming the first row contains headers)
+        # Assign column names based on the first row
         data.columns = data.iloc[0]
-        data = data[1:]  # Remove the first row (header row)
+        data = data[1:]  # Remove the first row
 
-        # Convert specific columns to numeric or float data types
+        # Convert to float data types
         data['Feature1'] = data['Feature1'].astype(float)
         data['Feature2'] = data['Feature2'].astype(float)
         data['Feature3'] = data['Feature3'].astype(float)
@@ -41,7 +41,7 @@ def load_data(file_path):
     except Exception as e:
         return None
 
-# Function to handle user input and make predictions
+# handle user input and make predictions
 def handle_prediction():
     user_input = {
         'Feature1': float(feature1_entry.get()),
