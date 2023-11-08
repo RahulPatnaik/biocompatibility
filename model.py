@@ -5,12 +5,12 @@ from sklearn.metrics import accuracy_score
 import joblib
 import os
 
-# Sample dataset (replace this with your own dataset)
+# Sample dataset 
 data = pd.DataFrame({
     'Feature1': [1.0, 2.0, 3.0, 4.0, 5.0],
     'Feature2': [2.0, 3.0, 4.0, 5.0, 6.0],
     'Feature3': [3.0, 4.0, 5.0, 6.0, 7.0],
-    'Biocompatible': [0, 0, 1, 1, 0]  # Example labels (0 for not biocompatible, 1 for biocompatible)
+    'Biocompatible': [0, 0, 1, 1, 0]  #0 for not biocompatible, 1 for biocompatible
 })
 
 # Split the data into features and labels
